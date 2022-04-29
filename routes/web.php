@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 use League\CommonMark\Extension\FrontMatter\Data\LibYamlFrontMatterParser;
@@ -16,10 +17,13 @@ use Spatie\YamlFrontMatter\YamlFrontMatter;
 */
 
 Route::get('/', function () {
-
+    \Illuminate\Support\Facades\DB::listen(function ($query) {
+       // \Illuminate\Support\Facades\Log::info('foo');
+        logger($query->sql, $query->bindings);
+    });
     
      return view('posts', [
-        'posts' => Post::all()
+        'posts' => Post::with('category')->get()
     ]);   
 
 });//->whereAlphaNumeric('posts');
@@ -36,6 +40,10 @@ Route::get('posts/{post}', function (Post $post) {
 });//->where('post','([A-Za-z0-9\-\_]+)');//regex
 
 
-
-
+Route::get('categories/{category:slug}', function (Category $category) 
+{
+    return view('posts', [
+        'posts' => $category->posts
+    ]);   
+});
 

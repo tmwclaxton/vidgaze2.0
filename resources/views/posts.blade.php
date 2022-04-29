@@ -13,7 +13,7 @@
         </a>
         <?= $post->excerpt; ?>
     
-    <a href="#"><p> {{ $post->category->name }}</p></a>
+    <a href="/categories/{{$post->category->slug}}"><p> {{ $post->category->name }}</p></a>
     </article>
     @endforeach
     @endif
