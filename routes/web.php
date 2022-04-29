@@ -21,49 +21,19 @@ Route::get('/', function () {
      return view('posts', [
         'posts' => Post::all()
     ]);   
-    // $document = YamlFrontMatter::parseFile(
-    //     resource_path('posts/my-third-post.html')
-    // );
 
-    // ddd($document->matter('excerpt'));
-
-
-    // return view('posts', [
-    //     'posts' => Post::all()
-    // ]);
-
-  //  $posts = Post::all();
-  //  ddd($posts[0]->getContents());
-    //return ['foo' => 'bar'];
-    //return view('welcome');
-    //return Post::find('my-first-post');
 });//->whereAlphaNumeric('posts');
 
 
-Route::get('posts/{post}', function ($slug) {
-    $post = Post::find($slug); 
-    // ddd($post);
+Route::get('posts/{post}', function (Post $post) {
+ //   Route::get('posts/{post:slug}', function (Post $post) {
+
     return view('post', [
-         'post'=>  $post
+         'post'=> $post
      ]);
 
-    // $path = (__DIR__ . "/../resources/posts/{$slug}.html");
-        
-    // if ( file_exists($path)) {
-    //     $post = cache()->remember("posts.{$slug}", 5, function() use ($path) {
-    //         var_dump('file get contents');
-    //         return file_get_contents($path);
-    //     });
-        
-    //     return view('post', ['post'=> $post]);
 
-
-    //     } else {
-    //         return redirect('');
-    //         //abort(404);
-    //         //dd();ddd();
-    //     }
-})->where('post','([A-Za-z0-9\-\_]+)');//regex
+});//->where('post','([A-Za-z0-9\-\_]+)');//regex
 
 
 

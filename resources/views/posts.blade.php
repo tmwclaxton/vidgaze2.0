@@ -8,7 +8,7 @@
         <a href="/posts/{{ $post->slug }}">
         <h1>
             
-                {{ $post->title; }}
+                {!! $post->title; !!}<!-- If you are in control of data otherwise --->
         </h1>
         </a>
         <?= $post->excerpt; ?>
