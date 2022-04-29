@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
-    protected $fillable = ['title','excerpt','body']; //what can users change
+    protected $fillable = ['title','excerpt','body','category_id','slug']; //what can users change
     //  protected $guarded = ['id'];
 
 
@@ -17,5 +17,10 @@ class Post extends Model
     {
       return 'slug'; 
     }
+
+    public function category() {
+      //hasOne, hasMany, belongsTo , belongsMany
+      return $this->belongsTo(Category::class);
+  }
 
 }
