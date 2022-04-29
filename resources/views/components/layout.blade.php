@@ -6,5 +6,5 @@
 </head>
 <body>
     <!--@yield('banner');--->
-    @yield('content');
+    @yield('content')
 </body>

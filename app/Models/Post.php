@@ -22,8 +22,9 @@ class Post
     }
 
     public static function all() {
+        //use maps when your looping an array and creating a new array
         return cache()->rememberForever('posts.all',function () {
-            return collect( File::files(resource_path("posts")))
+            return collect( File::files(resource_path("posts"))) //put an array in a collectio object
                 ->map(fn($file) => YamlFrontMatter::parseFile($file))
                 ->map(fn($document) => new Post(
                     $document->matter('title'),
@@ -57,12 +58,17 @@ class Post
     
     public static function find($slug) 
     {
-       // base_path();
-        if (!file_exists($path = resource_path("posts/{$slug}.html"))) {
-            throw new ModelNotFoundException();
+
+        return static::all()->firstWhere('slug',$slug);
+
         
-        }      
-        return cache()->remember("posts.{$slug}",5, fn() => file_get_contents($path));
+        
+       // base_path();
+        // if (!file_exists($path = resource_path("posts/{$slug}.html"))) {
+        //     throw new ModelNotFoundException();
+        
+        // }      
+        // return cache()->remember("posts.{$slug}",5, fn() => file_get_contents($path));
 
        // return $post;
     }
