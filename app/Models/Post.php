@@ -21,6 +21,9 @@ class Post extends Model
     public function category() {
       //hasOne, hasMany, belongsTo , belongsMany
       return $this->belongsTo(Category::class);
-  }
-
+    }
+    public function user() {
+      //hasOne, hasMany, belongsTo , belongsMany
+      return $this->belongsTo(User::class);
+    }
 }
