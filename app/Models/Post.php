@@ -11,6 +11,7 @@ class Post extends Model
     protected $fillable = ['title','excerpt','body','category_id','slug']; //what can users change
     //  protected $guarded = ['id'];
 
+    //protected $with = ['category','author']; this means relationship are pre-loaded and avoids n+1 problem
 
     //an alternative method to deciding in the route web file
     public function getRouteKeyName()
@@ -18,12 +19,12 @@ class Post extends Model
       return 'slug'; 
     }
 
-    public function category() {
+    public function category() {//assumes foreign key is category_id
       //hasOne, hasMany, belongsTo , belongsMany
       return $this->belongsTo(Category::class);
     }
-    public function user() {
+    public function author() { 
       //hasOne, hasMany, belongsTo , belongsMany
-      return $this->belongsTo(User::class);
+      return $this->belongsTo(User::class,'user_id');
     }
 }

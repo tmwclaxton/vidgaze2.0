@@ -42,7 +42,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
+    //an alternative method to deciding in the route web file
+    public function getRouteKeyName()
+    {
+      return 'username'; 
+    }
 
     public function posts() {
         //hasOne, hasMany, belongsTo , belongsMany
