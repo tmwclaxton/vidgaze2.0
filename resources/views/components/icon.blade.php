@@ -1,4 +1,4 @@
-@props(['name']);
+@props(['name'])
 
 
 @if ($name == 'down-arrow')
