@@ -20,6 +20,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'username',
         'email',
         'password',
     ];
@@ -45,7 +46,7 @@ class User extends Authenticatable
     //an alternative method to deciding in the route web file
     public function getRouteKeyName()
     {
-      return 'username'; 
+      return 'username';
     }
 
     public function posts() {

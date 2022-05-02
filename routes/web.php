@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\RegisterController;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
@@ -22,6 +23,8 @@ Route::get('/', [PostController::class,'index'])->name("home");//->whereAlphaNum
 
 
 Route::get('posts/{post}', [PostController::class,'show'])->name("post");
+Route::get('register', [RegisterController::class,'create'])->name("register");
+Route::post('register', [RegisterController::class,'store']);
 
 //->where('post','([A-Za-z0-9\-\_]+)');//regex
 
