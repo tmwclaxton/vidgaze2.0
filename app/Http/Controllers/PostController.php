@@ -11,14 +11,19 @@ use App\Models\User;
 class PostController extends Controller
 {
 
-
-    public function index() {
         // \Illuminate\Support\Facades\DB::listen(function ($query) {
         //    // \Illuminate\Support\Facades\Log::info('foo');
         //     logger($query->sql, $query->bindings);
         // });
+    public function index() {
+
+        // return Post::latest()->filter(
+        //     request(['search','category','author'])
+        // )->paginate(10);
+
          return view('posts.index', [
-            'posts' => Post::latest()->filter(request(['search','category','author']))->get()
+            'posts' => Post::latest()->filter(
+                request(['search','category','author']))->simplePaginate(5)->withQueryString()
             // 'categories' => Category::all(),      ]);
          ]);
 

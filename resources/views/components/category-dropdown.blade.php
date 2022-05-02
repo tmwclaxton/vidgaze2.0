@@ -10,11 +10,11 @@
     </button>
     </x-slot>
 
-    <x-dropdown-item href="/" :active="request()->routeIs('home')">View All</x-dropdown-item>
+    <x-dropdown-item href="/?{{ http_build_query(request()->except('category','page'))}}" :active="request()->routeIs('home')">View All</x-dropdown-item>
     @foreach ($categories as $category)
          <x-dropdown-item
             :active="isset($currentCategory) && $currentCategory->is($category)"
-            href="/?category={{$category->slug}}">
+            href="/?category={{$category->slug}}&{{ http_build_query(request()->except('category','page'))}}">
             {{ucwords($category->name)}}
 
         </x-dropdown-item>
