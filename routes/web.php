@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
@@ -17,35 +18,18 @@ use Spatie\YamlFrontMatter\YamlFrontMatter;
 |
 */
 
-Route::get('/', function () {
-    \Illuminate\Support\Facades\DB::listen(function ($query) {
-       // \Illuminate\Support\Facades\Log::info('foo');
-        logger($query->sql, $query->bindings);
-    });
-
-     return view('posts', [
-        'posts' => Post::latest()->with('category','author')->get(),
-        'categories' => Category::all()
-    ]);
-
-})->name("home");//->whereAlphaNumeric('posts');
+Route::get('/', [PostController::class,'index'])->name("home");//->whereAlphaNumeric('posts');
 
 
-Route::get('posts/{post}', function (Post $post) {
- //   Route::get('posts/{post:slug}', function (Post $post) {
+Route::get('posts/{post}', [PostController::class,'show'])->name("post");
 
-    return view('post', [
-         'post'=> $post
-     ]);
-
-
-});//->where('post','([A-Za-z0-9\-\_]+)');//regex
+//->where('post','([A-Za-z0-9\-\_]+)');//regex
 
 
 Route::get('categories/{category:slug}', function (Category $category)
 {
     return view('posts', [
-        'posts' => $category->posts->load(['category','author']),
+        'posts' => $category->posts, //->load(['category','author']),
         'categories' => Category::all(),
         'currentCategory' => $category
     ]);
@@ -54,7 +38,7 @@ Route::get('categories/{category:slug}', function (Category $category)
 Route::get('authors/{author:username}', function (User $author)
 {
     return view('posts', [
-        'posts' => $author->posts->load(['category','author']),
+        'posts' => $author->posts, //->load(['category','author']),
         'categories' => Category::all()
 
     ]);
