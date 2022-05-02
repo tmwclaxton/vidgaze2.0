@@ -1,12 +1,13 @@
 <x-layout>
-@include('_posts-header')
+@include('/posts/_header')
+{{-- @include('posts._header') --}}
 
 
 
 <main class="max-w-6xl mx-auto mt-6 lg:mt-20 space-y-6">
     @if ($posts->count())
         <x-posts-grid :posts='$posts' />
-    @else 
+    @else
 
     <p>No posts yet</p>
 

@@ -26,20 +26,21 @@ Route::get('posts/{post}', [PostController::class,'show'])->name("post");
 //->where('post','([A-Za-z0-9\-\_]+)');//regex
 
 
-Route::get('categories/{category:slug}', function (Category $category)
-{
-    return view('posts', [
-        'posts' => $category->posts, //->load(['category','author']),
-        'categories' => Category::all(),
-        'currentCategory' => $category
-    ]);
-})->name("category");
 
-Route::get('authors/{author:username}', function (User $author)
-{
-    return view('posts', [
-        'posts' => $author->posts, //->load(['category','author']),
-        'categories' => Category::all()
+// Route::get('categories/{category:slug}', function (Category $category)
+// {
+//     return view('posts', [
+//         'posts' => $category->posts, //->load(['category','author']),
+//         'categories' => Category::all(),
+//         'currentCategory' => $category
+//     ]);
+// })->name("category");
 
-    ]);
-});
+// Route::get('authors/{author:username}', function (User $author)
+// {
+//     return view('posts.index', [
+//         'posts' => $author->posts //->load(['category','author']),
+//         // 'categories' => Category::all()
+
+//     ]);
+// });

@@ -10,28 +10,7 @@
         <div class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl">
 
 
-            <x-dropdown>
-
-                <x-slot name="trigger">
-                    <button class="w-full lg:w-32 lg:inline-flex flex appearance-none bg-transparent py-2 pl-3 pr-9 text-sm font-semibold">
-
-                    {{ isset($currentCategory) ? ucwords($currentCategory->name) : 'Categories'}}
-
-                    <x-icon name="down-arrow" class="absolute pointer-events-none"/>
-                </button>
-                </x-slot>
-
-                <x-dropdown-item href="/" :active="request()->routeIs('home')">View All</x-dropdown-item>
-                @foreach ($categories as $category)
-                     <x-dropdown-item
-                        :active="isset($currentCategory) && $currentCategory->is($category)"
-                        href="/categories/{{$category->slug}}">
-                        {{ucwords($category->name)}}
-
-                    </x-dropdown-item>
-                @endforeach
-
-                </x-dropdown>
+            <x-category-dropdown />
 
             {{-- <select class="flex-1 appearance-none bg-transparent py-2 pl-3 pr-9 text-sm font-semibold">
                 <option value="category" disabled selected>Category

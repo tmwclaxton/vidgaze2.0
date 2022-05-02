@@ -17,14 +17,15 @@ class PostController extends Controller
         //    // \Illuminate\Support\Facades\Log::info('foo');
         //     logger($query->sql, $query->bindings);
         // });
-         return view('posts', [
-            'posts' => Post::latest()->filter(request(['search']))->get(),
-            'categories' => Category::all()
-        ]);
+         return view('posts.index', [
+            'posts' => Post::latest()->filter(request(['search','category','author']))->get()
+            // 'categories' => Category::all(),      ]);
+         ]);
+
     }
 
     public function show(Post $post) {
-        return view('post', [
+        return view('post.show', [
             'post'=> $post
         ]);
     }
