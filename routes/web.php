@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\SessionsController;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
@@ -20,11 +21,14 @@ use Spatie\YamlFrontMatter\YamlFrontMatter;
 */
 
 Route::get('/', [PostController::class,'index'])->name("home");//->whereAlphaNumeric('posts');
-
-
 Route::get('posts/{post}', [PostController::class,'show'])->name("post");
-Route::get('register', [RegisterController::class,'create'])->name("register");
-Route::post('register', [RegisterController::class,'store']);
+
+Route::get('register', [RegisterController::class,'create'])->middleware("guest");
+Route::post('register', [RegisterController::class,'store'])->middleware("guest");
+
+Route::get('login', [SessionsController::class,'create'])->middleware("guest");
+Route::post('login', [SessionsController::class,'store'])->middleware("guest");
+Route::post('logout', [SessionsController::class,'destroy'])->middleware("auth");
 
 //->where('post','([A-Za-z0-9\-\_]+)');//regex
 
