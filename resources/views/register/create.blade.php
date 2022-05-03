@@ -17,8 +17,13 @@
                     type="text"
                     name="username"
                     id="username"
+                    value="{{ old('name') }}"
                     required
                     >
+                    @error('username')
+                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                    @enderror
+
                     <label for="email" class="block mb-2 uppercase font-bold text-xs text-gray-700 mt-5">
                         Email
                     </label>
@@ -27,8 +32,15 @@
                     type="email"
                     name="email"
                     id="email"
+                    value="{{ old('email') }}"
                     required
                     >
+                    @error('email')
+                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                    @enderror
+
+
+
                     <label for="password" class="block mb-2 uppercase font-bold text-xs text-gray-700 mt-5">
                         Password
                     </label>
@@ -39,6 +51,10 @@
                     id="password"
                     required
                     >
+                    @error('password')
+                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                    @enderror
+
 
                     <label for="name" class="block mb-2 uppercase font-bold text-xs text-gray-700 mt-5">
                         Name
@@ -48,8 +64,12 @@
                     type="text"
                     name="name"
                     id="name"
+                    value="{{ old('name') }}"
                     required
                     >
+                    @error('name')
+                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                    @enderror
 
 
 
@@ -59,6 +79,14 @@
                             Submit
                         </button>
                     </div>
+                    {{-- @if ($errors->any())
+
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li class="text-red-500 text-xs mt-1">{{$error}}</li>
+                        @endforeach
+                    </ul>
+                    @endif --}}
                 </div>
             </form>
         </main>

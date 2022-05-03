@@ -43,6 +43,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //this is a mutator must follow naming convention
+    public function setPasswordAttribute($password) {
+        $this->attributes['password'] = bcrypt($password);
+    }
+    //this is an accessor
+    // public function getUsernameAttribute($username) {
+    //     return ucword($username);
+    // }
+
+
+
     //an alternative method to deciding in the route web file
     public function getRouteKeyName()
     {

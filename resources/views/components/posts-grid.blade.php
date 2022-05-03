@@ -1,4 +1,7 @@
 @props(['posts'])
+{{-- <x-search-card></x-search-card> --}}
+
+
 
 <x-large-post-card :post="$posts[0]" />
 
