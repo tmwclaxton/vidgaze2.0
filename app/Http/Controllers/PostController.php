@@ -10,11 +10,15 @@ use App\Models\User;
 
 class PostController extends Controller
 {
+    //the 7 restful routes
+    // index - show all
+    // show - show one
+    // create - show a page to create one of those item
+    // store - when form submited persist the item
+    // edit - show page to edit the item
+    // update - when form submitted save the edits
+    // destroy - delete one item
 
-        // \Illuminate\Support\Facades\DB::listen(function ($query) {
-        //    // \Illuminate\Support\Facades\Log::info('foo');
-        //     logger($query->sql, $query->bindings);
-        // });
     public function index() {
 
         // return Post::latest()->filter(
@@ -30,7 +34,7 @@ class PostController extends Controller
     }
 
     public function show(Post $post) {
-        return view('post.show', [
+        return view('posts.show', [
             'post'=> $post
         ]);
     }

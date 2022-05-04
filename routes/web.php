@@ -3,6 +3,7 @@
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
+use App\Http\Controllers\CommentController;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
@@ -21,7 +22,9 @@ use Spatie\YamlFrontMatter\YamlFrontMatter;
 */
 
 Route::get('/', [PostController::class,'index'])->name("home");//->whereAlphaNumeric('posts');
-Route::get('posts/{post}', [PostController::class,'show'])->name("post");
+Route::get('posts/{post:slug}', [PostController::class,'show'])->name("post");
+
+Route::post('posts/{post:slug}/comments', [CommentController::class,'store'])->middleware("auth");
 
 Route::get('register', [RegisterController::class,'create'])->middleware("guest");
 Route::post('register', [RegisterController::class,'store'])->middleware("guest");
@@ -36,6 +39,10 @@ Route::post('logout', [SessionsController::class,'destroy'])->middleware("auth")
 
 // Route::get('categories/{category:slug}', function (Category $category)
 // {
+        // \Illuminate\Support\Facades\DB::listen(function ($query) {
+        //    // \Illuminate\Support\Facades\Log::info('foo');
+        //     logger($query->sql, $query->bindings);
+        // });
 //     return view('posts', [
 //         'posts' => $category->posts, //->load(['category','author']),
 //         'categories' => Category::all(),

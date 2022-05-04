@@ -1,5 +1,5 @@
 @props(['posts'])
-{{-- <x-search-card></x-search-card> --}}
+
 
 
 

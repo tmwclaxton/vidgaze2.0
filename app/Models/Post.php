@@ -52,5 +52,9 @@ class Post extends Model
       //hasOne, hasMany, belongsTo , belongsMany
       return $this->belongsTo(User::class,'user_id');
     }
+    public function comments() {
+        //hasOne, hasMany, belongsTo , belongsMany
+        return $this->hasMany(Comment::class)->orderBy('id','desc');
+      }
 
 }
