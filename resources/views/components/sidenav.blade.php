@@ -1,11 +1,12 @@
-
-<div class=" w-full sm:w-64 h-full shadow-md z-30 fixed duration-75"  id="sidenav">
+<div class="fixed w-full h-full sm:relative sm:col-span-3 lg:col-span-2
+duration-75 z-20 pointer-events-auto" id="sidenav">
+<div class=" w-full h-full shadow-md z-30  "  >
     <dh-component>
-    <div class="flex flex-no-wrap">
+    <div class="flex flex-no-wrap h-full">
         <!-- Sidebar starts -->
         <!-- Remove class [ hidden ] and replace [ sm:flex ] with [ flex ] -->
         <!--- more free and premium Tailwind CSS components at https://tailwinduikit.com/ --->
-        <div style="min-height: 716px" class=" w-full sm:w-64 absolute sm:relative bg-gray-800 shadow md:h-full flex-col justify-between flex">
+        <div style="" class="w-full h-full relative bg-gray-800 shadow md:h-full flex-col justify-between flex">
             <div class="px-8">
                 <div class="h-16 w-full flex items-center">
 
@@ -136,30 +137,8 @@
 
 
     </div>
-    <script>
-        var sideBar = document.getElementById("sidenav");
-        var widthOfSideBar = sideBar.offsetWidth;
-       // var closeSidebar = document.getElementById("closeSideBar");
-        sideBar.style.transform = "translateX(-" + widthOfSideBar + "px)";
-        var open = true;
-        function sidebarHandler() {
-               // console.log("sidebarhandler");
-            if (open) {
-                open = false;
-                //console.log("open");
-                sideBar.style.transform = "translateX(0px)";
-               // openSidebar.classList.add("hidden");
-               // closeSidebar.classList.remove("hidden");
-            } else {
-                open = true;
-                //console.log("close");
-                sideBar.style.transform = "translateX(-" + widthOfSideBar + "px)";
 
-               // closeSidebar.classList.add("hidden");
-               // openSidebar.classList.remove("hidden");
-            }
-        }
-    </script>
 
     </dh-component>
+</div>
 </div>
