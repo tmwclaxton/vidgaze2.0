@@ -23,7 +23,8 @@ class SessionsController extends Controller
                 ->withErrors(['email' => 'Credentials couldn\'t be verified']);
         } else {
             session()->regenerate();
-            return redirect('/')->with("success","You have been logged in");
+            //return redirect('/')->with("success","You have been logged in");
+            return back()->with("success","You have been logged in");
         }
         // return view('sessions.create');
     }
@@ -31,6 +32,7 @@ class SessionsController extends Controller
     public function destroy() {
         //ddd('log the user out');
         auth()->logout();
-        return redirect('/')->with("success","You have been logged out");
+        //return redirect('/')->with("success","You have been logged out");
+        return back()->with("success","You have been logged out");
     }
 }

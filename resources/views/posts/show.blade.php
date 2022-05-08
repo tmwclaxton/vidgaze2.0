@@ -2,6 +2,80 @@
 
         <section class="px-6 py-8">
 
+            <main class="w-full mx-auto mt-10 pt-5">
+            <div class="grid grid-cols-10  ">
+
+                <div class="col-span-10 lg:col-span-6 ">
+                    <div class=" bg-zinc-800 rounded-xl">
+                     <iframe  class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/Ijk4j-r7qPA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <div class="hidden lg:block col-span-0 lg:col-span-4 bg-indigo-500-">
+
+
+
+                        <div class="w-full mx-2">
+                            <div
+                          class=" grid grid-cols-10 grid-flow-row overflow-hidden
+                          rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow
+                          duration-300 ease-in-out"
+                        >
+                          <div class="col-span-4">
+                            <a href="#">
+                              <img
+                                src="https://picsum.photos/640/400/?random"
+                                alt="Placeholder"
+                                class=" rounded-xl object-cover aspect-video w-full"
+                              />
+                            </a>
+                          </div>
+
+                          <div class="col-span-6 ">
+                            <div class="flex align-bottom flex-col leading-none p-2 ">
+                              <div class="flex flex-row justify-between items-center">
+                                <a
+                                  class="flex items-center no-underline hover:underline text-black"
+                                  href="#"
+                                >
+                                  <img
+                                    alt="Placeholder"
+                                    class="block rounded-full"
+                                    src="https://picsum.photos/32/32/?random"
+                                  />
+                                  <span class="ml-2 text-sm"> John Doe </span>
+                                </a>
+                              </div>
+                            </div>
+
+                            <div class="">
+                                <header
+                                  class="flex items-center justify-between leading-tight "
+                                >
+                                  <h1 class="text-lg">
+                                    <a class="no-underline hover:underline text-black" href="#">
+                                      Title
+                                    </a>
+                                  </h1>
+                                  <p class="text-grey-darker text-sm">9 min ago</p>
+                                </header>
+                              </div>
+
+                        </div>
+
+
+
+                        </div>
+                      </div>
+
+
+                </div>
+
+            </div>
+            </main>
+
+
+{{--
             <main class="max-w-6xl mx-auto mt-10 lg:mt-20 space-y-6">
                 <article class="max-w-4xl mx-auto lg:grid lg:grid-cols-12 gap-x-10">
                     <div class="col-span-4 lg:text-center lg:mb-10 ">
@@ -52,30 +126,10 @@
                     </div>
                     <section class="col-span-8 col-start-5 mt-10 space-y-7">
                         @auth
-                        <form method="post" action="/posts/{{$post->slug}}/comments" class="border border-gray-200 bg-gray-10 p-6 rounded-xl space-x-4">
-                            @csrf
-                            <header class="flex items-center">
-                                    {{-- {{auth()->user()->id; || auth->id();}} --}}
-                                    <img style="width: 40px; height:40px;"
-                                    class="rounded-full "
-                                    src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png" alt="">
 
-                                <h2 class="ml-5">Comment</h2>
-                            </header>
-                            <div class="mt-6">
-                                <textarea
-                                class=" p-2 w-full border border-gray-300 bg-gray-100 focus:outline-none "
-                                name="body" id=""  rows="5" placeholder="Add a comment"></textarea>
-                            </div>
-                            <div class="flex justify-end">
-                                <button type="button"
-                                 class="mt-3 mr-1 text-xs uppercase font-semibold text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:ring-gray-300 rounded-lg  px-5 py-2.5  mb-2 dark:bg-gray-600 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
-                                >cancel</button>
-                                <button type="submit"
-                                class="mt-3 text-xs uppercase font-semibold text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 rounded-lg  px-5 py-2.5  mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-                               >comment</button>
-                            </div>
-                        </form>
+
+                        @include('posts._add-comment-form');
+
                         @else
                             <p>Log in to post a comment</p>
                         @endauth
@@ -85,7 +139,7 @@
                     </section>
                 </article>
             </main>
-
+ --}}
 
 
 </x-layout>

@@ -4,12 +4,13 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\CommentController;
-use App\Models\Category;
-use App\Models\Post;
-use App\Models\User;
+// use App\Models\Category;
+// use App\Models\Post;
+// use App\Models\User;
 use Illuminate\Support\Facades\Route;
-use League\CommonMark\Extension\FrontMatter\Data\LibYamlFrontMatterParser;
-use Spatie\YamlFrontMatter\YamlFrontMatter;
+// use League\CommonMark\Extension\FrontMatter\Data\LibYamlFrontMatterParser;
+// use Spatie\YamlFrontMatter\YamlFrontMatter;
+//use vendor\mailchimp\marketing\Api\ApiClient;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,6 +21,28 @@ use Spatie\YamlFrontMatter\YamlFrontMatter;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('ping', function () {
+
+    $mailchimp = new MailchimpMarketing\ApiClient();
+
+    $mailchimp->setConfig([
+        'apiKey' => config('services.mailchimp.key'),
+        'server' => 'us9'
+    ]);
+
+   // $response = $mailchimp->ping->get();
+    //$response = $mailchimp->lists->getAllLists();
+  //  $response = $mailchimp->lists->getList('df13a287c4');
+  //  $response = $mailchimp->lists->getListMembersInfo('df13a287c4');
+    $response = $mailchimp->lists->addListMember('df13a287c4', [
+        'email_address' => 'tmwaasdfsdfclaxton@gmail.com',
+        'status' => 'subscribed'
+    ]);
+    //print_r($response);
+    // dd($response);
+    print("<pre>".print_r($response,true)."</pre>");
+});
+
 
 Route::get('/', [PostController::class,'index'])->name("home");//->whereAlphaNumeric('posts');
 Route::get('posts/{post:slug}', [PostController::class,'show'])->name("post");
