@@ -43,6 +43,11 @@ Route::get('ping', function () {
     print("<pre>".print_r($response,true)."</pre>");
 });
 
+Route::get('about', function ()
+{
+        return view('information.about');
+})->name("about");
+
 
 Route::get('/', [PostController::class,'index'])->name("home");//->whereAlphaNumeric('posts');
 Route::get('posts/{post:slug}', [PostController::class,'show'])->name("post");

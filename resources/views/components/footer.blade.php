@@ -1,4 +1,4 @@
-{{-- <!-- This is an example component -->
+<!-- This is an example component -->
 <hr>
 <footer class="p-4 bg-white sm:p-6 dark:bg-gray-800">
     <div class="md:flex md:justify-between">
@@ -87,9 +87,9 @@
             </a>
         </div>
     </div>
-</footer> --}}
+</footer>
 
-
+{{--
 
 <footer class="bg-gray-100 border border-black border-opacity-5 rounded-xl text-center py-16 px-10 mt-16">
     <img src="./images/lary-newsletter-icon.svg" alt="" class="mx-auto -mb-6" style="width: 145px;">
@@ -117,4 +117,4 @@
             </form>
         </div>
     </div>
-</footer>
+</footer> --}}
