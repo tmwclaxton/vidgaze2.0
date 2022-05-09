@@ -5,7 +5,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <script defer src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"></script>
-<link rel="stylesheet" href="css/categories.css">
+<link rel="stylesheet" href="/css/categories.css">
+<link rel="stylesheet" href="/css/custom.css">
 {{-- Daisy componenets for footer --}}
 <link href="https://cdn.jsdelivr.net/npm/daisyui@2.14.3/dist/full.css" rel="stylesheet" type="text/css" />
 <script src="https://cdn.tailwindcss.com"></script>
@@ -42,9 +43,9 @@
 
         <div class="col-span-3 lg:col-span-2 pointer-events-none" id="spaceUnderSideNav"></div>
 
-        <section class="col-span-10 sm:col-span-7 lg:col-span-8 px-6   pointer-events-auto " id="contentDiv">
+        <section class="col-span-10 sm:col-span-7 lg:col-span-8 px-6  bg-gray-50 pointer-events-auto " id="contentDiv">
 
-                <div class="mb-auto pb-5 max-w-screen-2xl mx-auto lg:px-10 ">
+                <div class="mb-auto pb-5 max-w-screen-2xl mx-auto lg:px-10 bg-gray-50">
 
 
                 {{ $slot }}
