@@ -1,7 +1,7 @@
 @props(['img','name','time','body','replies',
-'likes','dislikes','button','level','children'])
+'likes','dislikes','button','level','children','endthread','award','pinned'])
 
-<div id="comment" {{ $attributes->merge(['class' => 'col-span-1 flex ']) }} >
+<div id="comment" {{ $attributes->merge(['class' => 'col-span-1 flex group relative']) }} >
 
 @php
     $start = 0;
@@ -13,6 +13,9 @@
 @endwhile
 
     <div  class=" flex w-full">
+
+
+
 
         <div style="margin-top:-5px;" class="z-2 bg-gray-50 absolute w-11 h-12 ml-1"></div>
         <div class="m-2 mr-2 ">
@@ -34,10 +37,21 @@
 
 
 
+        <div class="pl-1   pt-1">
+                <span class="text-base font-semibold hover:cursor-pointer">{{$name}}</span>
+                <span class="text-sm mr-1 ">· {{$time }}</span>
+                {{-- awards --}}
+                @isset($award)
+                    @foreach($award as $key => $value)
+                        <span class="hover:cursor-pointer inline-block">
+                        <x-award award_id="{{$value[0]}}" class="h-4  inline"></x-award>
+                        <p class="text-xs inline mr-1 pb-1 ">{{$value[1]}}</p>
+                        </span>
+                    @endforeach
+                @endisset
 
-        <div class="pl-1 pt-1 ">
-            <span class="text-base font-semibold hover:cursor-pointer">{{$name}}</span>
-            <span class="text-sm">· {{$time }}</span>
+
+
             <p style=" text-align:justify;word-spacing:-3px;"
             class=" pr-2 pt-1">
                 {{$body}}
@@ -77,7 +91,15 @@
                     </svg>
                 @endif
                 <p class="pl-1 pr-3">{{$dislikes}}</p>
-                <p class="uppercase">Reply</p>
+                <span class="uppercase">Reply</span>
+                <span class="ml-3 uppercase">Award</span>
+
+                {{-- pinned comment --}}
+                @if(isset($pinned) && $pinned = 1)
+
+                <p style="margin-left: auto;" class="mr-2 uppercase inline">Pinned</p>
+                @endif
+
             </span>
 
             @if ($replies > 0 && $children == 0)
@@ -95,20 +117,29 @@
 
 
             </span>
-
-
             @endif
+            @isset($endthread)
+                @if ($endthread == 1)
+                    <div class="relative">
+                        <div style="margin-left: -60px; margin-top:-24px" class="z-1 absolute bg-gray-50 h-16 w-5 left-0 top-0"></div>
+                    </div>
+                @endif
+            @endisset
 
             <br>
 
-
-
         </div>
 
-
-
-
-
     </div>
+
+    <button onclick="options()">
+        <svg xmlns="http://www.w3.org/2000/svg" class="hidden
+        group-hover:block  top-1 right-0 opacity-90
+        absolute w-6 text-gray-900
+        p-1 rounded-sm " fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+        <path
+        d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+        </svg>
+    </button>
 
 </div>

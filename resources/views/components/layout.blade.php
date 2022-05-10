@@ -7,10 +7,11 @@
 <script defer src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"></script>
 <link rel="stylesheet" href="/css/categories.css">
 <link rel="stylesheet" href="/css/custom.css">
+{{-- <link rel="stylesheet" href="{{ mix("css/app.css")}}"> --}}
 {{-- Daisy componenets for footer --}}
 <link href="https://cdn.jsdelivr.net/npm/daisyui@2.14.3/dist/full.css" rel="stylesheet" type="text/css" />
 <script src="https://cdn.tailwindcss.com"></script>
-
+<link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 <body style="font-family: Open Sans, sans-serif bg-gray-50">
 
@@ -29,7 +30,7 @@
 
     {{-- Content & sidenav--}}
 
-    <div class="flex sm:fixed grid grid-cols-10 h-screen w-full pointer-events-none">
+    <div class=" sm:fixed grid grid-cols-10 h-screen w-full pointer-events-none">
         <x-sidenav></x-sidenav>
         <div class="col-span-10 sm:col-span-7 lg:col-span-8 pointer-events-none fixed">
 
@@ -39,13 +40,13 @@
     </div>
 
 
-    <div class="grid grid-cols-10 w-full pointer-events-none ">
+    <div class="grid grid-cols-10 w-full pointer-events-none bg-gray-50">
 
         <div class="col-span-3 lg:col-span-2 pointer-events-none" id="spaceUnderSideNav"></div>
 
-        <section class="col-span-10 sm:col-span-7 lg:col-span-8 px-6  bg-gray-50 pointer-events-auto " id="contentDiv">
+        <section class="col-span-10 sm:col-span-7 lg:col-span-8  pointer-events-auto mx-auto" id="contentDiv">
 
-                <div class="mb-auto pb-5 max-w-screen-2xl mx-auto lg:px-10 bg-gray-50">
+                <div class="mb-auto pb-5 max-w-screen-2xl  bg-gray-50">
 
 
                 {{ $slot }}
@@ -86,7 +87,7 @@
 
         <div class="col-span-3 lg:col-span-2 pointer-events-none" id="footerUnderSideNav"></div>
 
-        <div class="col-span-10 sm:col-span-7 lg:col-span-8 pointer-events-auto" id="footerDiv">
+        <div class="z-10 col-span-10 sm:col-span-7 lg:col-span-8 pointer-events-auto" id="footerDiv">
             <x-footer></x-footer>
         </div>
     </div>

@@ -1,10 +1,15 @@
 
-                            <div class="relative flex pb-2">
+                            <div class="relative flex pb-2 group">
 
-                                <div style="min-width:11rem; max-width:13rem;" class=" w-1/2 sm:w-1/4 xl:w-full">
+                                <div style="min-width:11rem; max-width:13rem;" class=" w-1/2 sm:w-1/4 xl:w-full ">
 
                                     <div class="relative w-full">
-                                        <button onclick="watchlater()" class="m-1 right-0 bg-gray-900 opacity-90
+                                        <div   class=" group-hover:block  mr-1 right-0 top-10 mt-6 bg-gray-900 opacity-90
+                                        absolute w-auto text-white
+                                        p-1 rounded-sm ">20:01
+
+                                        </div>
+                                        <button onclick="watchlater()" class="hidden group-hover:block  m-1 right-0 bg-gray-900 opacity-90
                                                 absolute w-6 text-white
                                                 p-1 rounded-sm ">
                                             <svg  xmlns="http://www.w3.org/2000/svg" fill="currentColor"
@@ -15,7 +20,7 @@
                                                     d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z" />
                                             </svg>
                                         </button>
-                                        <button onclick="playlist()" style="margin-top: 2px;" class="mx-1 right-0 top-7 bg-gray-900 opacity-90
+                                        <button onclick="playlist()" style="margin-top: 2px;" class="hidden group-hover:block  mx-1 right-0 top-7 bg-gray-900 opacity-90
                                                 absolute w-6 text-white
                                                 p-1 rounded-sm ">
                                             <svg xmlns="http://www.w3.org/2000/svg"
@@ -29,6 +34,7 @@
 
                                             </svg>
                                         </button>
+
                                     </div>
 
                                     <a href="#">
@@ -42,7 +48,7 @@
                                         <div class="w-full flex align-bottom flex-col leading-none
                                         pl-2 ">
 
-                                            <p style="" class="font-semibold mb-1  custom-line-clamp-2 pr-5 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam error ea incidunt. Quam adipisci iure at rerum laborum porro fugit laboriosam autem accusamus incidunt, odio, qui veniam sit odit? Unde.</p>
+                                            <p style="" class="font-semibold mb-1  line-clamp-2 pr-5 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam error ea incidunt. Quam adipisci iure at rerum laborum porro fugit laboriosam autem accusamus incidunt, odio, qui veniam sit odit? Unde.</p>
                                             <p class="text-sm">SunnyV2</p>
                                             <p class="text-xs">2.2M views · 1 year ago</p>
 
@@ -50,7 +56,7 @@
                                     </a>
                                 </div>
                                 <button onclick="options()">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="m-1 mt-0 top-0 right-0 opacity-90
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="hidden group-hover:block m-0 mt-0 top-0 right-0 opacity-90
                                     absolute w-6 text-gray-900
                                     p-1 rounded-sm " fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
                                     <path

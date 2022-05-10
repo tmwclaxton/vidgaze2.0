@@ -1,6 +1,6 @@
 
     {{-- bg-[url('/images/logo/night_sky.jpg')] --}}
-    <nav style="background:#060911;" class=" border-gray-200 pb-1 px-2 sm:px-4 py-2.5 w-full fixed z-40">
+    <nav style="background:#060911;" class=" border-gray-200 pb-1 px-2 sm:px-4 py-2.5 w-full h-16 fixed z-40">
         <div class="grid grid-cols-2 lg:grid-cols-7 ">
             <div class="flex items-center lg:col-span-2">
                 <button id="openSideBar" onclick="sidebarHandler()"
@@ -45,9 +45,9 @@
 
 
                 <button type="button" class="max-h-10 float-right
-                    font-medium rounded-lg
-                    text-sm px-5 py-2.5 text-center inline-flex items-center
-                    text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
+                    rounded-lg
+                    px-5 py-2.5 text-center inline-flex items-center
+                    text-sm font-medium text-white bg-blue-700 border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
                     mr-2 mb-2
                     ">
                     <svg class="w-4 h-4 mr-2 -ml-1" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="google" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512"><path fill="currentColor" d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"></path></svg>

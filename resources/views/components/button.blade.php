@@ -16,10 +16,10 @@
         @case('rect_button')
         {{-- used on comment section --}}
         <button type="button"
-        {{ $attributes->merge(['class' => 'right-aligned max-w-min  font-bold
+        {{ $attributes->merge(['class' => 'right-aligned  font-bold
             focus:ring-2
             focus:outline-none  rounded-sm text-sm px-5
-            py-2.5 mr-2 mb-2 uppercase']) }} >
+            py-2.5  mb-2 uppercase']) }} >
             {{$slot}}
         </button>
         @break
